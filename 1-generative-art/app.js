@@ -24,5 +24,13 @@ let generateArt = () => {
     }
 }
 
+let cleanUp = () => {
+    while(canvas.lastChild) {
+        canvas.lastChild.remove();
+    }
+    generateArt();
+}
+
 generateArt();
 
+generateBtn.addEventListener('click', cleanUp);
