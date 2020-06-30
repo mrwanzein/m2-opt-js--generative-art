@@ -7,7 +7,6 @@ const shadowLength = document.getElementById('Shadow length');
 let generateArt = () => {
     let randomColor = ['#f2f7f5', '#00473e', '#faae2b', '#ffa8ba', '#fa5246', '#475d5b'];
     
-    for(let i=0; i<500; i++) {
         let randomLeft = Math.floor(Math.random() * document.documentElement.clientWidth - 140);
         let randomTop = Math.floor(Math.random() * document.documentElement.clientHeight - 140);
         let randomWidth = Math.floor(Math.random() * widthRange.value);
@@ -17,7 +16,7 @@ let generateArt = () => {
         let randomColorNum2 = Math.floor(Math.random() * randomColor.length);
         let randomRadius = Math.floor(Math.random() * 100);
 
-        let randomShadowLength = Math.floor(Math.random() * 50) - 50;
+        let randomShadowLength = Math.floor(Math.random() * shadowLength.value) - shadowLength.value;
         let randomShadowBlur = Math.floor(Math.random() * (45 - 10) + 1) + 10;
         let randomShadowSpread = Math.floor(Math.random() * 10) - 10;
         
@@ -30,9 +29,9 @@ let generateArt = () => {
         div.style.transform = `rotate(${randomRotation}deg)`;
         div.style.background = `linear-gradient(${randomColor[randomColorNum]} 0%, ${randomColor[randomColorNum]}50 50%, ${randomColor[randomColorNum]} 100%)`;
         div.style.boxShadow = `${randomShadowLength}px ${randomShadowLength}px ${randomShadowBlur}px ${randomShadowSpread}px ${randomColor[randomColorNum2]}`;
-        div.style.borderRadius = `${randomRadius}px`
+        div.style.borderRadius = `${randomRadius}px`;
+        div.style.animation = 'fadeIn 0.2s';
         canvas.append(div);
-    }
 }
 
 let cleanUp = () => {
@@ -42,6 +41,6 @@ let cleanUp = () => {
     generateArt();
 }
 
-generateArt();
+setInterval(generateArt, 20)
 
 generateBtn.addEventListener('click', cleanUp);
