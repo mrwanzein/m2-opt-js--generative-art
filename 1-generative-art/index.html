@@ -5,7 +5,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="generate" style="z-index: 100; position: absolute">Generate Art</button>
+    <div style="z-index: 100; position: absolute">
+        <label for="width">Width</label>
+        <input type="range" id="width" name="width" min="30" max="150">
+        
+        <label for="height">height</label>
+        <input type="range" id="height" name="height" min="30" max="150">
+
+        <label for="Shadow length">Shadow length</label>
+        <input type="range" id="Shadow length" name="Shadow length" min="0" max="100">
+        
+        <button id="generate">Generate Art</button>
+    </div>
     <div id="canvas" class="canvas"></div>
     <script src="app.js"></script>
 </body>

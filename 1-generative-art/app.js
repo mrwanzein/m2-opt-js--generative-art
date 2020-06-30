@@ -1,13 +1,17 @@
 const canvas = document.getElementById('canvas');
 const generateBtn = document.getElementById('generate');
+const widthRange = document.getElementById('width');
+const heightRange = document.getElementById('height');
+const shadowLength = document.getElementById('Shadow length');
 
 let generateArt = () => {
     let randomColor = ['#f2f7f5', '#00473e', '#faae2b', '#ffa8ba', '#fa5246', '#475d5b'];
+    
     for(let i=0; i<500; i++) {
         let randomLeft = Math.floor(Math.random() * document.documentElement.clientWidth - 140);
         let randomTop = Math.floor(Math.random() * document.documentElement.clientHeight - 140);
-        let randomWidth = Math.floor(Math.random() * 150);
-        let randomHeight = Math.floor(Math.random() * 100);
+        let randomWidth = Math.floor(Math.random() * widthRange.value);
+        let randomHeight = Math.floor(Math.random() * heightRange.value);
         let randomRotation = Math.floor(Math.random() * 360);
         let randomColorNum = Math.floor(Math.random() * randomColor.length);
         let randomColorNum2 = Math.floor(Math.random() * randomColor.length);
