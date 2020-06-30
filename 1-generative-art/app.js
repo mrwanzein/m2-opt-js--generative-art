@@ -3,7 +3,6 @@ const generateBtn = document.getElementById('generate');
 
 let generateArt = () => {
     let randomColor = ['#f2f7f5', '#00473e', '#faae2b', '#ffa8ba', '#fa5246', '#475d5b'];
-
     for(let i=0; i<500; i++) {
         let randomLeft = Math.floor(Math.random() * document.documentElement.clientWidth - 140);
         let randomTop = Math.floor(Math.random() * document.documentElement.clientHeight - 140);
@@ -11,7 +10,13 @@ let generateArt = () => {
         let randomHeight = Math.floor(Math.random() * 100);
         let randomRotation = Math.floor(Math.random() * 360);
         let randomColorNum = Math.floor(Math.random() * randomColor.length);
+        let randomColorNum2 = Math.floor(Math.random() * randomColor.length);
+        let randomRadius = Math.floor(Math.random() * 100);
 
+        let randomShadowLength = Math.floor(Math.random() * 50) - 50;
+        let randomShadowBlur = Math.floor(Math.random() * (45 - 10) + 1) + 10;
+        let randomShadowSpread = Math.floor(Math.random() * 10) - 10;
+        
         let div = document.createElement('div');
         div.style.position = 'absolute';
         div.style.width = `${randomWidth}px`;
@@ -19,7 +24,9 @@ let generateArt = () => {
         div.style.top = `${randomTop}px`;
         div.style.left = `${randomLeft}px`;
         div.style.transform = `rotate(${randomRotation}deg)`;
-        div.style.backgroundColor = randomColor[randomColorNum];
+        div.style.background = `linear-gradient(${randomColor[randomColorNum]} 0%, ${randomColor[randomColorNum]}50 50%, ${randomColor[randomColorNum]} 100%)`;
+        div.style.boxShadow = `${randomShadowLength}px ${randomShadowLength}px ${randomShadowBlur}px ${randomShadowSpread}px ${randomColor[randomColorNum2]}`;
+        div.style.borderRadius = `${randomRadius}px`
         canvas.append(div);
     }
 }
