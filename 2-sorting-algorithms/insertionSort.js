@@ -1,7 +1,7 @@
 function swap(arr, a, b) {
-    let temp = b;
-    arr[arr.indexOf(b)] = a;
-    arr[arr.indexOf(a)] = temp;
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
 }
 
 function insertionSort(arr) {
@@ -10,7 +10,7 @@ function insertionSort(arr) {
         
         for(let j=i-1; j>=0; j--) {
             if(arr[decreaseIndexIfSwapped] < arr[j]) {
-                swap(arr, arr[j], arr[decreaseIndexIfSwapped]);
+                swap(arr, j, decreaseIndexIfSwapped);
                 decreaseIndexIfSwapped -= 1;
             };
         }

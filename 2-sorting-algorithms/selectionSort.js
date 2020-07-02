@@ -1,7 +1,7 @@
 function swap(arr, a, b) {
-    let temp = b;
-    arr[arr.indexOf(b)] = a;
-    arr[arr.indexOf(a)] = temp;
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
 }
 
 function selectionSort(arr) {
@@ -10,7 +10,7 @@ function selectionSort(arr) {
     for(let i=0; i<arr.length; i++) {
         let min = Math.min(...copyArr);
         copyArr.splice(copyArr.indexOf(min), 1);
-        swap(arr, arr[i], min);
+        swap(arr, i, arr.indexOf(min));
     }
     
     return arr; 
